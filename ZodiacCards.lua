@@ -592,11 +592,29 @@ SMODS.Consumable {
     atlas = 'modconsumable',
     pos = { x = 2, y = 3 },
     soul_pos = { x = 3, y = 3 },
+	loc_vars = function(self, info_queue)
+		info_queue[#info_queue + 1] = G.P_CENTERS.e_polychrome
+		return { vars = {} }
+	end,
     can_use = function(self, card)
-      return true
+	if #G.jokers.cards > 0 then
+			for k, v in pairs(G.jokers.cards) do
+				if not v.edition then
+					return true
+				end
+			end
+	end
     end,
     use = function(self, card)
-	G.consumeables.config.card_limit = G.consumeables.config.card_limit + 1
+	local affectable = {}
+			for k, v in pairs(G.jokers.cards) do
+				if not v.edition then
+					table.insert(affectable, v)
+
+				end
+			end
+	local affected = #affectable > 0 and pseudorandom_element(affectable, pseudoseed('affect')) or nil
+	affected:set_edition({polychrome = true}, true)
     end,
 }
 SMODS.Consumable {
@@ -605,11 +623,29 @@ SMODS.Consumable {
     atlas = 'modconsumable',
     pos = { x = 4, y = 3 },
     soul_pos = { x = 5, y = 3 },
+	loc_vars = function(self, info_queue)
+		info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
+		return { vars = {} }
+	end,
     can_use = function(self, card)
-      return true
+	if #G.jokers.cards > 0 then
+			for k, v in pairs(G.jokers.cards) do
+				if not v.edition then
+					return true
+				end
+			end
+	end
     end,
     use = function(self, card)
-	G.consumeables.config.card_limit = G.consumeables.config.card_limit + 1
+	local affectable = {}
+			for k, v in pairs(G.jokers.cards) do
+				if not v.edition then
+					table.insert(affectable, v)
+
+				end
+			end
+	local affected = #affectable > 0 and pseudorandom_element(affectable, pseudoseed('affect')) or nil
+	affected:set_edition({negative = true}, true)
     end,
 }
 SMODS.Consumable {

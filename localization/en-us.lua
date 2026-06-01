@@ -86,91 +86,91 @@ return {
 		c_aries = {
 			name = "Aries",
 				text = {
-					"Permanently increases",
+					"Permanently increase",
 					"hand size by {C:attention}1{}",
 				},
 			},
 		c_taurus = {
 			name = "Taurus",
 				text = {
-					"Permanently increases",
+					"Permanently increase",
 					"discards by {C:red}1{}",
 				},
 			},
 		c_gemini = {
 			name = "Gemini",
 				text = {
-					"Permanently increases",
+					"Permanently increase",
 					"hands by {C:blue}1{}",
 				},
 			},
 		c_cancer = {
 			name = "Cancer",
 				text = {
-					"Permanently increases",
+					"Permanently increase",
 					"interest cap by {C:money}$1{}",
 				},
 			},
 		c_leo = {
 			name = "Leo",
 				text = {
-					"Permanently increases",
+					"Permanently increase",
 					"shop options by {C:attention}1{}",
 				},
 			},
 		c_libra = {
 			name = "Libra",
 				text = {
-					"Permanently increases number",
+					"Permanently increase number",
 					"of consumable slots by {C:attention}1{}",
 				},
 			},
 		c_aquarius = {
 			name = "Aquarius",
 				text = {
-					"Add {C:money}Gold Leaf{}",
+					"Add {C:dark_edition}Gold Leaf{}",
 					"to a random Joker",
 				},
 			},
 		c_pisces = {
 			name = "Pisces",
 				text = {
-					"Add {C:attention}Holofoil{}",
+					"Add {C:dark_edition}Holofoil{}",
 					"to a random Joker",
 				},
 			},
 		c_sagittarius = {
 			name = "Sagittarius",
 				text = {
-					"Add {C:attention}Prismatic{}",
+					"Add {C:dark_edition}Prismatic{}",
 					"to a random Joker",
 				},
 			},
 		c_scorpio = {
 			name = "Scorpio",
 				text = {
-					"Add {C:chips}Diamond{}",
+					"Add {C:dark_edition}Diamond{}",
 					"to a random Joker",
 				},
 			},
 		c_vergo = {
 			name = "Vergo",
 				text = {
-					"Permanently increases number",
-					"of consumable slots by {C:attention}1{}",
+					"Add {C:dark_edition}Polychrome{}",
+					"to a random Joker",
 				},
 			},
 		c_capricorn = {
 			name = "Capricorn",
 				text = {
-					"Permanently increases number",
-					"of consumable slots by {C:attention}1{}",
-				},
+					"Add {C:dark_edition}Negative{}",
+					"to a random Joker",
+					},
 			},
 		c_ophiuchus = {
 			name = "Ophiuchus",
 				text = {
-					"Permanently decreases number of hands by {C:blue}1{},",
+					"Permanently decrease number of hands by {C:blue}1{},",
 					"discards by {C:red}1{}, hand size by {C:attention}1{}, interest cap by {C:money}$1{},",
 					"consumable slots by {C:attention}1{}, and shop options by {C:attention}1{},",
 					"in exchange for increasing joker slots by {C:attention}1{}",
