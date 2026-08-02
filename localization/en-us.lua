@@ -153,8 +153,8 @@ return {
 					"to a random Joker",
 				},
 			},
-		c_vergo = {
-			name = "Vergo",
+		c_virgo = {
+			name = "Virgo",
 				text = {
 					"Add {C:dark_edition}Polychrome{}",
 					"to a random Joker",

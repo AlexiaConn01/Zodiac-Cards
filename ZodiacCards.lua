@@ -588,7 +588,7 @@ SMODS.Consumable {
 }
 SMODS.Consumable {
     set = 'Zodiac',
-    key = 'vergo',
+    key = 'virgo',
     atlas = 'modconsumable',
     pos = { x = 2, y = 3 },
     soul_pos = { x = 3, y = 3 },
