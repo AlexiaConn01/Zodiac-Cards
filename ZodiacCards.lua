@@ -63,6 +63,20 @@ local msg_dictionary={
 
 local mod_name = 'Zodiac Cards' -- Put your mod name here!
 
+SMODS.Joker { 
+
+config = {extra = 0.1, Xmult = 1}
+
+if self.ability.name == 'Constellation' and not context.blueprint and context.consumeable.ability.set == 'Planet' then
+                self.ability.x_mult = self.ability.x_mult + self.ability.extra
+                G.E_MANAGER:add_event(Event({
+                    func = function() card_eval_status_text(self, 'extra', nil, nil, nil, {message = localize{type='variable',key='a_xmult',vars={self.ability.x_mult}}}); return true
+                    end}))
+                return
+            end
+            return
+}
+
 zodiac_deck = SMODS.Back {
     key = "zodiac_deck",
     atlas = 'Decks',
