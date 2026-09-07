@@ -68,7 +68,7 @@ SMODS.Joker {
 	key = "horoscope",
 	atlas = 'Jokers', 
 	pos = { x = 0, y = 0 },
-	config = {extra = 50, chips = 50},
+	config = {extra = { chips_mod = 50, chips = 50},
 	unlocked = true, 
 	discovered = true,
 	rarity = 3,
@@ -79,16 +79,21 @@ SMODS.Joker {
 	calculate = function(self, context)
 		if self.debuff then return nil end
 		if context.using_consumeable and not context.blueprint and context.consumeable.ability.set == 'Zodiac' then
-			self.ability.chips = self.ability.chips + self.ability.extra
+			self.ability.extra.chips = self.ability.extra.chips + self.ability.extra.chips_mod
 			G.E_MANAGER:add_event(Event({
 				func = function() card_eval_status_text(self, 'extra', nil, nil, nil, {message = localize{type='variable',key='a_chips',vars={self.ability.chips}}}); return true
 				end}))
 			return
 		end
+		if context.joker.main and context.cardarea == G.jokers then 
+			return {
+				chips = self.ability.extra.chips,
+				colour = G.C.CHIPS
+			}
+		end
 	end,
-	
 	loc_def = function(self)
-		return { self.ability.chips }
+		return { self.ability.extra.chips }
 	end 
 }
 
