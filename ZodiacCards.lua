@@ -66,7 +66,7 @@ local mod_name = 'Zodiac Cards' -- Put your mod name here!
 
 SMODS.Joker { 
 	key = "horoscope",
-	atlas = 'Horoscope', 
+	atlas = 'Jokers', 
 	pos = { x = 0, y = 0 },
 	config = {extra = 50, chips = 50},
 	unlocked = true, 
