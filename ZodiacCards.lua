@@ -64,28 +64,29 @@ local msg_dictionary={
 
 local mod_name = 'Zodiac Cards' -- Put your mod name here!
 
-SMODS.Joker { 
+SMODS.Joker {
 	key = "horoscope",
 	atlas = 'Jokers', 
 	pos = { x = 0, y = 0 },
-	config = {extra = { chips_mod = 50, chips = 50},
+	config = {extra = { chips = 50, chips_mod = 50 } },
 	unlocked = true, 
 	discovered = true,
 	rarity = 3,
 	cost = 10,
 	loc_vars = function(self, config, card)
-		return { vars = { self.config.chips } }
+		return { vars = { self.config.extra.chips } }
 	end,
 	calculate = function(self, context)
 		if self.debuff then return nil end
-		if context.using_consumeable and not context.blueprint and context.consumeable.ability.set == 'Zodiac' then
-			self.ability.extra.chips = self.ability.extra.chips + self.ability.extra.chips_mod
-			G.E_MANAGER:add_event(Event({
-				func = function() card_eval_status_text(self, 'extra', nil, nil, nil, {message = localize{type='variable',key='a_chips',vars={self.ability.chips}}}); return true
-				end}))
-			return
+		if context.using_consumeable then
+			if not context.blueprint then 
+				if context.consumeable.ability.set == 'Zodiac' then
+					self.ability.extra.chips = self.ability.extra.chips + self.ability.extra.chips_mod
+					return
+				end
+			end
 		end
-		if context.joker.main and context.cardarea == G.jokers then 
+		if context.joker_main and context.cardarea == G.jokers then 
 			return {
 				chips = self.ability.extra.chips,
 				colour = G.C.CHIPS
@@ -105,7 +106,7 @@ zodiac_deck = SMODS.Back {
     unlocked = true,
     loc_args = {localize{type = 'name_text', key = 'v_retrograde', set = 'Voucher'}, localize{type = 'name_text', key = 'v_perfect_syzygy', set = 'Voucher'}},
     loc_vars = function(self, config, card)
-        return { vars = { self.config.vouchers.v_retrograde, self.config.vouchers.v_retrograde } }
+        return { vars = { self.config.vouchers.v_retrograde, self.config.vouchers.v_perfect_syzygy } }
     end,
     apply = function(self)
 	G.GAME.joker_rate = 0
