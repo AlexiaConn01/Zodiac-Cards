@@ -23,6 +23,7 @@ SMODS.Atlas { key = 'modconsumable', path = 'modconsumable.png', px = 71, py = 9
 SMODS.Atlas { key = 'Boosters', path = 'Boosters.png', px = 71, py = 95 }
 SMODS.Atlas { key = 'Tags', path = 'Tags.png', px = 34, py = 34 }
 SMODS.Atlas { key = 'Vouchers', path = 'Vouchers.png', px = 71, py = 95 }
+SMODS.Atlas { key = 'Jokers', path = 'Jokers.png', px = 71, py = 95 }
 
 local zodiac_cards_mod = SMODS.current_mod
 
@@ -64,17 +65,27 @@ local msg_dictionary={
 local mod_name = 'Zodiac Cards' -- Put your mod name here!
 
 SMODS.Joker { 
-
-config = {extra = 0.1, Xmult = 1}
-
-if self.ability.name == 'Constellation' and not context.blueprint and context.consumeable.ability.set == 'Planet' then
-                self.ability.x_mult = self.ability.x_mult + self.ability.extra
-                G.E_MANAGER:add_event(Event({
-                    func = function() card_eval_status_text(self, 'extra', nil, nil, nil, {message = localize{type='variable',key='a_xmult',vars={self.ability.x_mult}}}); return true
-                    end}))
-                return
-            end
-            return
+	key = "joker",
+	atlas = 'Joker', 
+	pos = { x = 0, y = 0 },
+	config = {extra = 50, chips = 50},
+	unlocked = false, 
+	rarity = 3,
+	cost = 10,
+	calculate = function(self, context)
+		if self.debuff then return nil end
+		if context.using_consumeable and not context.blueprint and context.consumeable.ability.set == 'Zodiac' then
+			self.ability.chips = self.ability.chips + self.ability.extra
+			G.E_MANAGER:add_event(Event({
+				func = function() card_eval_status_text(self, 'extra', nil, nil, nil, {message = localize{type='variable',key='a_chips',vars={self.ability.chips}}}); return true
+				end}))
+			return
+		end
+	end,
+	
+	loc_def = function(self)
+		return { self.ability.chips }
+	end 
 }
 
 zodiac_deck = SMODS.Back {
