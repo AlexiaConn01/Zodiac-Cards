@@ -72,11 +72,8 @@ SMODS.Joker {
 	unlocked = false,
 	rarity = 3,
 	cost = 10,
-	loc_vars = function(self, config, card)
-		return { vars = { self.config.extra.chips } }
-	end,
 	calculate = function(self, card, context)
-	if context.using_consumeable and context.consumeable.ability.set = 'Zodiac' then
+	if context.using_consumeable and context.consumeable.ability.set == 'Zodiac' then
 		card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod
 	end
 	if context.joker_main then 
@@ -84,6 +81,9 @@ SMODS.Joker {
 				chips = card.ability.extra.chips
 			}
 		end
+	end,
+	loc_vars = function(self, card)
+		return { vars = { self.config.extra.chips } }
 	end
 }
 
