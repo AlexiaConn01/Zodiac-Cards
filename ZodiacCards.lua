@@ -69,10 +69,10 @@ SMODS.Joker {
 	atlas = 'Horoscope', 
 	pos = { x = 0, y = 0 },
 	config = {extra = 50, chips = 50},
-	unlocked = false, 
+	unlocked = true, 
 	rarity = 3,
 	cost = 10,
-	loc_vars = function(self, config)
+	loc_vars = function(self, config, card)
 		return { vars = { self.config.chips } }
 	end,
 	calculate = function(self, context)
