@@ -76,10 +76,12 @@ SMODS.Joker {
 		return { vars = { self.config.extra.chips } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main then 
+	if context.using_consumeable and context.consumeable.ability.set = 'Zodiac' then
+		card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod
+	end
+	if context.joker_main then 
 			return {
-				self.ability.extra.chips = self.ability.extra.chips + self.ability.extra.chip_mod
-				chips = self.ability.extra.chips
+				chips = card.ability.extra.chips
 			}
 		end
 	end
