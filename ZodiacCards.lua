@@ -68,7 +68,7 @@ SMODS.Joker {
 	key = "horoscope",
 	atlas = 'Jokers', 
 	pos = { x = 0, y = 0 },
-	config = {extra = { chips = 50, chips_mod = 50 } },
+	config = { extra = { chips = 50, chips_mod = 50 } },
 	unlocked = true, 
 	discovered = true,
 	rarity = 3,
@@ -76,20 +76,19 @@ SMODS.Joker {
 	loc_vars = function(self, config, card)
 		return { vars = { self.config.extra.chips } }
 	end,
-	calculate = function(self, context)
+	calculate = function(self, context, config, card)
 		if self.debuff then return nil end
 		if context.using_consumeable then
 			if not context.blueprint then 
-				if context.consumeable.ability.set == 'Zodiac' then
+				if context.consumeable.ability.set == "Zodiac" then
 					self.ability.extra.chips = self.ability.extra.chips + self.ability.extra.chips_mod
 					return
 				end
 			end
 		end
-		if context.joker_main and context.cardarea == G.jokers then 
+		if context.joker_main then 
 			return {
-				chips = self.ability.extra.chips,
-				colour = G.C.CHIPS
+				chips = self.ability.extra.chips
 			}
 		end
 	end,
