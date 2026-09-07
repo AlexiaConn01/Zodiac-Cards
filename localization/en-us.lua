@@ -1,5 +1,14 @@
 return {
     descriptions={
+	Joker = {
+		j_horoscope={
+			name="Horoscope", 
+				text={ 
+					"Gains {C:chips}+50{} chips when a {C:zodiac}Zodiac Card{} is used.",
+					"Currently {C:chips}+{#1#}{}",
+				},
+			},
+		},
 	Back = {
 		b_zodiac_deck={
 			name="Zodiac Deck",

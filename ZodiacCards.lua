@@ -65,13 +65,16 @@ local msg_dictionary={
 local mod_name = 'Zodiac Cards' -- Put your mod name here!
 
 SMODS.Joker { 
-	key = "joker",
-	atlas = 'Joker', 
+	key = "horoscope",
+	atlas = 'Horoscope', 
 	pos = { x = 0, y = 0 },
 	config = {extra = 50, chips = 50},
 	unlocked = false, 
 	rarity = 3,
 	cost = 10,
+	loc_vars = function(self, config)
+		return { vars = { self.config.chips } }
+	end,
 	calculate = function(self, context)
 		if self.debuff then return nil end
 		if context.using_consumeable and not context.blueprint and context.consumeable.ability.set == 'Zodiac' then
