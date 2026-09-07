@@ -70,6 +70,7 @@ SMODS.Joker {
 	pos = { x = 0, y = 0 },
 	config = {extra = 50, chips = 50},
 	unlocked = true, 
+	discovered = true,
 	rarity = 3,
 	cost = 10,
 	loc_vars = function(self, config, card)
