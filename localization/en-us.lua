@@ -5,7 +5,7 @@ return {
 			name="Horoscope", 
 				text={ 
 					"Gains {C:chips}+50{} chips when a {C:zodiac}Zodiac Card{} is used.",
-					"Currently {C:chips}+{#1#}{}",
+					"Currently {C:chips}+#1#{}",
 				},
 			},
 		},
